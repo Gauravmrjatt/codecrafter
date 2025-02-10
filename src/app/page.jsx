@@ -101,51 +101,131 @@ export default function Home({ title = "Find Your Perfect Developer Match" }) {
                 </div >
             </div >
 
-            <div className="container  font-size-[20px] text-center mt-5 h-full">
-                <div>
-                    <Steps />
+            <Steps />
+
+            <div className="bg-white p-4 text-center p-x-5">
+                <h2 className="text-3xl text-black text-center font-bold mt-10 mb-10 ">
+                    {"Our Visions".split(" ").map((word, idx) => (
+                        <motion.span
+                            key={idx}
+                            initial={{ x: -10, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: idx * 0.04 }}
+                        >
+                            {word + " "}
+                        </motion.span>
+                    ))}
+                </h2>
+                <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 w-full h-full">
+                    {[
+                        {
+                            icon: <Rocket size={40} className="text-blue-400" />,
+                            title: "Innovating with Technology",
+                            text: "Building AI-powered, scalable, and secure web solutions to solve real-world problems.",
+                            color: "rgba(96, 165, 250,1)"
+                        },
+                        {
+                            icon: <Code size={40} className="text-green-400" />,
+                            title: "Empowering Developers & Businesses",
+                            text: "Providing tools, mentorship, and resources to accelerate innovation and growth.",
+                            color: "rgba(74 ,222 ,128 ,1)"
+                        },
+                        {
+                            icon: <Users size={40} className="text-purple-400" />,
+                            title: "Building a Strong Community",
+                            text: "Connecting developers, sharing knowledge, and organizing tech events.",
+                            color: "rgba(192, 132, 252,1)"
+                        },
+                    ].map((item, index) => (
+                        <SpotlightCard
+                            key={index}
+                            className="custom-spotlight-card w-full max-w-xs sm:max-w-sm shadow"
+                            spotlightColor={item.color}
+                        >
+                            <div className="p-4 sm:p-6 flex flex-col items-center text-center">
+                                <div className="mb-4">{item.icon}</div>
+                                <div className="mb-4 text-lg font-semibold">{item.title}</div>
+                                <p className="text-sm text-gray-300">{item.text}</p>
+                            </div>
+                        </SpotlightCard>
+                    ))}
                 </div>
             </div>
-
-
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 w-full p-4">
-                {[
-                    {
-                        icon: <Rocket size={40} className="text-blue-400" />,
-                        title: "Innovating with Technology",
-                        text: "Building AI-powered, scalable, and secure web solutions to solve real-world problems.",
-                        color: "rgba(96, 165, 250,0.5)"
-                    },
-                    {
-                        icon: <Code size={40} className="text-green-400" />,
-                        title: "Empowering Developers & Businesses",
-                        text: "Providing tools, mentorship, and resources to accelerate innovation and growth.",
-                        color: "rgba(74 ,222 ,128 ,0.5)"
-                    },
-                    {
-                        icon: <Users size={40} className="text-purple-400" />,
-                        title: "Building a Strong Community",
-                        text: "Connecting developers, sharing knowledge, and organizing tech events.",
-                        color: "rgba(192, 132, 252,0.5)"
-                    },
-                ].map((item, index) => (
-                    <SpotlightCard
-                        key={index}
-                        className="custom-spotlight-card w-full max-w-xs sm:max-w-sm"
-                        spotlightColor={item.color}
-                    >
-                        <div className="p-4 sm:p-6 flex flex-col items-center text-center">
-                            <div className="mb-4">{item.icon}</div>
-                            <div className="mb-4 text-lg font-semibold">{item.title}</div>
-                            <p className="text-sm text-gray-300">{item.text}</p>
-                        </div>
-                    </SpotlightCard>
-                ))}
+            <div className=" py-40 dark:bg-black bg-white w-full ">
+                <div className="max-w-7xl mx-auto text-center">
+                    <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
+                        Remote{" "}
+                        <span className="text-green-400">
+                            {"Connectivity".split("").map((word, idx) => (
+                                <motion.span
+                                    key={idx}
+                                    className="inline-block"
+                                    initial={{ x: -10, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: idx * 0.04 }}
+                                >
+                                    {word}
+                                </motion.span>
+                            ))}
+                        </span>
+                    </p>
+                    <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto py-4">
+                        Break free from traditional boundaries. Work from anywhere, at the
+                        comfort of your own studio apartment. Perfect for Nomads and
+                        Travellers.
+                    </p>
+                </div>
+                <WorldMap
+                    lineColor="#000000"
+                    dots={[
+                        {
+                            start: {
+                                lat: 64.2008,
+                                lng: -149.4937,
+                            }, // Alaska (Fairbanks)
+                            end: {
+                                lat: 34.0522,
+                                lng: -118.2437,
+                            }, // Los Angeles
+                        },
+                        {
+                            start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
+                            end: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+                        },
+                        {
+                            start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+                            end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+                        },
+                        {
+                            start: { lat: 51.5074, lng: -0.1278 }, // London
+                            end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+                        },
+                        {
+                            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+                            end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+                        },
+                        {
+                            start: { lat: 28.6139, lng: 77.209 }, // New Delhi
+                            end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+                        },
+                    ]}
+                />
             </div>
-
-            <section className="py-16 bg-gray-100 flex justify-center">
+            <section className="py-16 flex justify-center">
                 <div className="max-w-screen-xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold mb-6">What Our Users Say</h2>
+                    <h2 className="text-3xl text-black font-bold mb-6">
+                        {"What Our Users Say".split(" ").map((word, idx) => (
+                            <motion.span
+                                key={idx}
+
+                                initial={{ x: -10, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: idx * 0.04 }}
+                            >
+                                {word + " "}
+                            </motion.span>
+                        ))}
+                    </h2>
                     <div className="flex flex-wrap justify-center gap-8">
                         {[
                             { name: "Anish", review: "Dev Match helped me find my dream job!" },
@@ -167,8 +247,20 @@ export default function Home({ title = "Find Your Perfect Developer Match" }) {
                 </div>
             </section>
 
-            <section className="bg-blue-600 text-white text-center py-16">
-                <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
+            <section className=" text-black text-center py-16">
+                <h2 className="text-3xl font-bold">
+                    {"Ready to Get Started?".split(" ").map((word, idx) => (
+                        <motion.span
+                            key={idx}
+
+                            initial={{ x: -10, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: idx * 0.04 }}
+                        >
+                            {word + " "}
+                        </motion.span>
+                    ))}
+                </h2>
                 <p className="text-lg mt-2">Join thousands of developers and recruiters today.</p>
                 <div className="mt-6">
                     <Link href={"/signup"}>
@@ -179,7 +271,7 @@ export default function Home({ title = "Find Your Perfect Developer Match" }) {
                 </div>
             </section>
 
-            <Footer />
+            {/* <Footer /> */}
 
         </>
     );
