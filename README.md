@@ -1,36 +1,39 @@
 # CodeCrafter
 
-A two-sided platform for developers and recruiters: developers build a profile and browse roles, recruiters post jobs and review candidates.
+Two sided platform. Developers build a profile and look for work. Recruiters post jobs and look at candidates.
 
-**Live demo** → https://codecrafter-red.vercel.app
+**Live:** https://codecrafter-red.vercel.app
 
-## Features
+## What it does
 
-- **Developer side** — profile, dashboard, and a browsable developer directory
-- **Recruiter side** — dedicated dashboard for postings and candidates
-- **Auth** — login and signup flows
-- **Motion and 3D** — `@react-three/fiber` / `drei` for the globe, plus spring-based and spotlight components
-- **UI** — HeroUI components, Tailwind CSS, Radix primitives, Tabler icons
+- Developer dashboard and profile editor
+- Browsable developer directory
+- Recruiter dashboard for postings and candidates
+- Login and signup
+- 3D hero pieces built with React Three Fiber, plus spring driven and spotlight components
+- HeroUI components on Tailwind, Radix primitives, Tabler icons
+
+About 3,600 lines across 55 files, 21 components.
 
 ## Stack
 
-Next.js (App Router) · HeroUI · Tailwind CSS · Radix UI · React Three Fiber · React Spring · Tabler Icons
+Next.js (App Router), HeroUI, Tailwind CSS, Radix UI, React Three Fiber, React Spring, Tabler Icons.
 
-## Structure
+## Layout
 
 ```
 src/app/
   dashboard/
-    developer/      developer dashboard
-    profile/        profile editor
-    recruiter/      recruiter dashboard
-  developers/       developer directory
-  jobs/             job listings
+    developer/
+    profile/
+    recruiter/
+  developers/
+  jobs/
   login/  signup/
-src/components/     globe · lamp · spotlight-card · stepper · split-text · floating-nav
+src/components/     globe, lamp, spotlight-card, stepper, split-text, floating-nav
 ```
 
-## Getting started
+## Run it
 
 ```bash
 npm install
@@ -39,13 +42,13 @@ npm run dev         # http://localhost:3000
 
 ## Scripts
 
-| Command | Description |
+| Command | What it does |
 |---|---|
 | `npm run dev` | Dev server with Turbopack |
 | `npm run build` | Production build |
-| `npm start` | Serve the production build |
+| `npm start` | Serve the build |
 | `npm run lint` | ESLint |
 
 ## Notes
 
-- The repository contains a vendored copy of the `next-app-template-main` starter alongside the real app. It isn't imported by `src/` — removing it would make the tree much easier to read.
+The repo carries a vendored copy of the `next-app-template-main` starter next to the real app. Nothing under `src/` imports it. Removing it would make the tree much easier to follow.
